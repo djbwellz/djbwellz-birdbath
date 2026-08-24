@@ -193,6 +193,13 @@
 const app = initializeApp(firebaseConfig);
   const messaging = getMessaging(app);
   const vapidKey = "BLsfF3FPZhtT4h6ACuJ8kP3asaG3rxf6CL0k6d_qivK3LcjLbc3Y2oi5TBBw3Sns1sVOVHD9HEe0oEf6EhdF-AI";
+  const registration = await navigator.serviceWorker.register('/djbwellz-birdbath/firebase-messaging-sw.js');
+  const token = await getToken(messaging, {
+  vapidKey: vapidKey,
+  serviceWorkerRegistration: registration
+});
+
+console.log("Firebase token:", token);
 </script>  
 </body>
 </html>
