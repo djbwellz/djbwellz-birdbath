@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+f<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,23 +6,7 @@
 
   <title>DJ Bwellz Birdbath LIVE</title>
 
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 
-  <script>
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-
-    OneSignalDeferred.push(async function(OneSignal) {
-      await OneSignal.init({
-        appId: "1b0042f8-0ecc-4b98-924f-158edc734fa5",
-
-        serviceWorkerPath: "djbwellz-birdbath/OneSignalSDKWorker.js",
-
-        serviceWorkerParam: {
-          scope: "/djbwellz-birdbath/"
-        }
-      });
-    });
-  </script>
 
   <style>
     body {
@@ -139,12 +123,7 @@
   <script>
     document.getElementById("notifyButton").addEventListener("click", function() {
 
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
-
-      OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.Notifications.requestPermission();
-      });
-
+     
     });
 </script>    
 <script type="module">
