@@ -11,3 +11,12 @@ firebase.initializeApp({
 });
 
 firebase.messaging();
+const messaging = firebase.messaging();
+messaging.onBackgroundMessage((payload) => {
+console.log("Background message received:", payload);
+const title = payload.notification?.title || "Birdbath";
+const options = {
+body: payload.notification?.body || "You have a new Birdbath notification"
+};
+self.registration.showNotification(title, options);
+});
