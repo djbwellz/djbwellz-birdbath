@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "1b0042f8-0ecc-4b98-924f-158edc734fa5",
-      safari_web_id: "web.onesignal.auto.5cadd501-3597-404f-b8f7-8075876e5307",
-      notifyButton: {
-        enable: true,
-      },
-    });
-  });
-</script>
-
-
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>DJ Bwellz Birdbath LIVE</title>
+
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "1b0042f8-0ecc-4b98-924f-158edc734fa5",
+
+        serviceWorkerPath: "djbwellz-birdbath/OneSignalSDKWorker.js",
+
+        serviceWorkerParam: {
+          scope: "/djbwellz-birdbath/"
+        }
+      });
+    });
+  </script>
 
   <style>
     body {
@@ -59,7 +61,7 @@
     }
 
     .alert-box {
-      background: rgba(255,255,255,0.10);
+      background: rgba(255, 255, 255, 0.10);
       padding: 30px;
       border-radius: 20px;
       margin-top: 35px;
@@ -96,55 +98,55 @@
 
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <div class="bird">🐦💦</div>
+    <div class="bird">🐦💦</div>
 
-  <h1>DJ Bwellz Birdbath</h1>
+    <h1>DJ Bwellz Birdbath</h1>
 
-  <h2>LIVE Wildlife Camera</h2>
-
-  <p>
-    Welcome to the DJ Bwellz Birdbath!
-    Watch birds and other wildlife stop by throughout the day.
-  </p>
-
-  <div class="alert-box">
-
-    <h2>🔔 Get Wildlife Alerts</h2>
+    <h2>LIVE Wildlife Camera</h2>
 
     <p>
-      Want to know when something shows up?
-      Turn on alerts and get notified when there's activity at the birdbath.
+      Welcome to the DJ Bwellz Birdbath!
+      Watch birds and other wildlife stop by throughout the day.
     </p>
 
-    <button id="notifyButton">
-      🔔 Turn On Birdbath Alerts
-    </button>
+    <div class="alert-box">
+
+      <h2>🔔 Get Wildlife Alerts</h2>
+
+      <p>
+        Want to know when something shows up?
+        Turn on alerts and get notified when there's activity at the birdbath.
+      </p>
+
+      <button id="notifyButton">
+        🔔 Turn On Birdbath Alerts
+      </button>
+
+    </div>
+
+    <p style="margin-top:35px;">
+      🔴 <span class="live">LIVE</span> on YouTube
+    </p>
+
+    <footer>
+      DJ Bwellz Birdbath • Wildlife Live Stream
+    </footer>
 
   </div>
 
-  <p style="margin-top:35px;">
-    🔴 <span class="live">LIVE</span> on YouTube
-  </p>
+  <script>
+    document.getElementById("notifyButton").addEventListener("click", function() {
 
-  <footer>
-    DJ Bwellz Birdbath • Wildlife Live Stream
-  </footer>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
 
-</div>
+      OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.Notifications.requestPermission();
+      });
 
-<script>
-document.getElementById('notifyButton').addEventListener('click', function () {
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.Notifications.requestPermission();
-  });
-});
-</script>
-
-
-  
+    });
+  </script>
 
 </body>
 </html>
