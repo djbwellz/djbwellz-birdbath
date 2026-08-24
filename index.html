@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DJ Bwellz Birdbath LIVE</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #071b2e, #0b4f6c);
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #7ee8fa;
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 19px;
+      line-height: 1.6;
+    }
+
+    .bird {
+      font-size: 80px;
+      margin-bottom: 10px;
+    }
+
+    .alert-box {
+      background: rgba(255,255,255,0.10);
+      padding: 30px;
+      border-radius: 20px;
+      margin-top: 35px;
+    }
+
+    button {
+      background: #ffd166;
+      color: #111;
+      border: none;
+      padding: 18px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .live {
+      color: #ff5252;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 50px;
+      opacity: 0.7;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="bird">🐦💦</div>
+
+  <h1>DJ Bwellz Birdbath</h1>
+
+  <h2>LIVE Wildlife Camera</h2>
+
+  <p>
+    Welcome to the DJ Bwellz Birdbath!
+    Watch birds and other wildlife stop by throughout the day.
+  </p>
+
+  <div class="alert-box">
+
+    <h2>🔔 Get Wildlife Alerts</h2>
+
+    <p>
+      Want to know when something shows up?
+      Turn on alerts and get notified when there's activity at the birdbath.
+    </p>
+
+    <button id="notifyButton">
+      🔔 Turn On Birdbath Alerts
+    </button>
+
+  </div>
+
+  <p style="margin-top:35px;">
+    🔴 <span class="live">LIVE</span> on YouTube
+  </p>
+
+  <footer>
+    DJ Bwellz Birdbath • Wildlife Live Stream
+  </footer>
+
+</div>
+
+<script>
+document.getElementById("notifyButton").addEventListener("click", function() {
+  alert("Birdbath alerts are coming next! 🐦");
+});
+</script>
+
+</body>
+</html>
