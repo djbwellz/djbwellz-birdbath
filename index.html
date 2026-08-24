@@ -152,7 +152,7 @@ f<!DOCTYPE html>
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-  import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging.js";
+ mport { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -171,6 +171,16 @@ f<!DOCTYPE html>
   // Initialize Firebase
 const app = initializeApp(firebaseConfig);
   const messaging = getMessaging(app);
+  onMessage(messaging, (payload) => {
+  console.log("Foreground message received:", payload);
+
+  const title = payload.notification?.title || "Birdbath";
+  const options = {
+    body: payload.notification?.body || "You have a new Birdbath notification"
+  };
+
+  new Notification(title, options);
+});
   const vapidKey = "BLsfF3FPZhtT4h6ACuJ8kP3asaG3rxf6CL0k6d_qivK3LcjLbc3Y2oi5TBBw3Sns1sVOVHD9HEe0oEf6EhdF-AI";
   const registration = await navigator.serviceWorker.register('/djbwellz-birdbath/firebase-messaging-sw.js');
   const token = await getToken(messaging, {
