@@ -131,8 +131,11 @@
 </div>
 
 <script>
-document.getElementById("notifyButton").addEventListener("click", function() {
-  alert("Birdbath alerts are coming next! 🐦");
+document.getElementById('notifyButton').addEventListener('click', function () {
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.Notifications.requestPermission();
+  });
 });
 </script>
 
